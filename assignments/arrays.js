@@ -103,7 +103,11 @@ console.log(
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 
 let carModels = [];
-inventory.forEach(car => carModels.push(car.car_model));
+// inventory.forEach(car => carModels.push(car.car_model));
+
+for (let i = 0; i < inventory.length; i++) {
+  carModels.push(inventory[i].car_model);
+}
 
 let carModelsSorted = carModels.sort();
 console.log(carModelsSorted);
@@ -111,7 +115,11 @@ console.log(carModelsSorted);
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
 let carYears = [];
-inventory.forEach(car => carYears.push(car.car_year));
+// inventory.forEach(car => carYears.push(car.car_year));
+
+for (let i = 0; i < inventory.length; i++) {
+  carYears.push(inventory[i].car_year);
+}
 console.log(carYears);
 
 // ==== Challenge 5 ====
@@ -119,11 +127,17 @@ console.log(carYears);
 let oldCars = [];
 
 // Looped through each element and saved the car id if the year is prior to year 2000 and pushed that id to the oldCars array
-inventory.forEach(function(car) {
-  if (car.car_year < 2000) {
-    oldCars.push(car.car_year);
+// inventory.forEach(function(car) {
+//   if (car.car_year < 2000) {
+//     oldCars.push(car.car_year);
+//   }
+// });
+
+for (let i = 0; i < inventory.length; i++) {
+  if (inventory[i].car_year < 2000) {
+    oldCars.push(inventory[i].id);
   }
-});
+}
 
 console.log(oldCars.length);
 
@@ -132,11 +146,17 @@ console.log(oldCars.length);
 let BMWAndAudi = [];
 
 // Looped through the array and pushed the entire object to a new array BMWAndAudi if the make was either BMW or Audi
-inventory.forEach(function(car) {
-  if (car.car_make === "BMW" || car.car_make === "Audi") {
-    // Converts object to a string and pushes to array
-    BMWAndAudi.push(JSON.stringify(car));
+// inventory.forEach(function(car) {
+//   if (car.car_make === "BMW" || car.car_make === "Audi") {
+//     // Converts object to a string and pushes to array
+//     BMWAndAudi.push(JSON.stringify(car));
+//   }
+// });
+
+for (let i = 0; i < inventory.length; i++) {
+  if (inventory[i].car_make === "BMW" || inventory[i].car_make === "Audi") {
+    BMWAndAudi.push(JSON.stringify(inventory[i]));
   }
-});
+}
 
 console.log(BMWAndAudi);
